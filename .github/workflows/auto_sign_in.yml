@@ -5,9 +5,12 @@ name: CI
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
-
-  schedule:
-    - cron: '0 1 * * *'
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  #schedule:
+   # - cron: '0 1 * * *'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -29,4 +32,4 @@ jobs:
         run: |
           sudo apt-get install jq &&
           sudo chmod 777 alipan_auto_check_in.sh &&
-          ./alipan_auto_check_in.sh 09979e3825de4756a45f92edb4d8deef fa93309586e44480ad8e512db66b621f
+          ./alipan_auto_check_in.sh ${{ secrets.PUSHPLUS_TOKEN }} ${{ secrets.REFRESH_TOKEN }}
