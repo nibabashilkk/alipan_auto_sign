@@ -5,10 +5,10 @@ name: alipan_auto_sign
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
-  workflow_dispatch:
   schedule:
     # * is a special character in YAML so you have to quote this string
     - cron:  '30 0 * * *'
+  workflow_dispatch:
 
   # Allows you to run this workflow manually from the Actions tab
 
