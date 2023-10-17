@@ -29,4 +29,4 @@ jobs:
         run: |
           sudo apt-get install jq &&
           sudo chmod 777 alipan_auto_check_in.sh &&
-          ./alipan_auto_check_in.sh 09979e3825de4756a45f92edb4d8deef
+          ./alipan_auto_check_in.sh 09979e3825de4756a45f92edb4d8deef fa93309586e44480ad8e512db66b621f
