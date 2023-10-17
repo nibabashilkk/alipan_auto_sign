@@ -32,4 +32,4 @@ jobs:
         run: |
           sudo apt-get install jq &&
           sudo chmod 777 alipan_auto_check_in.sh &&
-          echo "${{ secrets.REFRESH_TOKEN }}" && echo "${{ secrets.PUSHPLUS_TOKEN }}"
+          ./alipan_auto_check_in.sh ${{ secrets.REFRESH_TOKEN }} ${{ secrets.PUSHPLUS_TOKEN }}
