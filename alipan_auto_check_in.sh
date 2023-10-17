@@ -4,6 +4,7 @@ refresh_token=$1
 #pushplus_token
 pushplus_token=$2
 ##获取access_token
+echo $refresh_token
 access_token_command="curl --location --request POST 'https://auth.aliyundrive.com/v2/account/token' --header 'Content-Type: application/json' --data '{
     \"grant_type\": \"refresh_token\",
     \"refresh_token\": \"$refresh_token\"
@@ -41,5 +42,6 @@ pushplus_command="curl --location --request POST 'http://www.pushplus.plus/send/
     \"title\":\"阿里云盘自动签到\",
     \"content\":\"签到成功，你已经签到$sign_in_count次，本次签到奖励————$notice\"
 }'"
+echo
 eval $pushplus_command
 fi
