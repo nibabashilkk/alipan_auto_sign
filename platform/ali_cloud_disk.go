@@ -75,7 +75,7 @@ func (AliCloudDisk *AliCloudDisk) getReward(accessToken string, signInCount stri
 	dataByte, _ := json.Marshal(dataMap)
 	req, err := http.NewRequest("POST", url, bytes.NewReader(dataByte))
 	if err != nil {
-		return "", nil
+		return "", err
 	}
 	req.Header.Add("Content-Type", "application/json")
 	req.Header.Add("Authorization", accessToken)
@@ -86,7 +86,7 @@ func (AliCloudDisk *AliCloudDisk) getReward(accessToken string, signInCount stri
 	defer res.Body.Close()
 	body, err := io.ReadAll(res.Body)
 	if err != nil {
-		return "", nil
+		return "", err
 	}
 	var resMap map[string]interface{}
 	json.Unmarshal(body, &resMap)
@@ -99,15 +99,15 @@ func (AliCloudDisk *AliCloudDisk) getReward(accessToken string, signInCount stri
 func (AliCloudDisk *AliCloudDisk) qianDao(refreshToken string) (string, string, error) {
 	accessToken, err := AliCloudDisk.getAccessToken(refreshToken)
 	if err != nil {
-		return "", "", nil
+		return "", "", err
 	}
 	signInCount, err := AliCloudDisk.signIn(accessToken)
 	if err != nil {
-		return "", "", nil
+		return "", "", err
 	}
 	reward, err := AliCloudDisk.getReward(accessToken, signInCount)
 	if err != nil {
-		return "", "", nil
+		return "", "", err
 	}
 	return signInCount, reward, nil
 }
