@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"time"
 )
 
 type PushPlus struct {
@@ -20,6 +21,7 @@ func (PushPlus *PushPlus) Run(pushPlusToken string, title string, content string
 	dataByte, _ := json.Marshal(dataMap)
 	req, _ := http.NewRequest("POST", url, bytes.NewReader(dataByte))
 	req.Header.Add("Content-Type", "application/json")
+	time.Sleep(1 * time.Second)
 	res, err := http.DefaultClient.Do(req)
 	if err == nil {
 		defer res.Body.Close()
