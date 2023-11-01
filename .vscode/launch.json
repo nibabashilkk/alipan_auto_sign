@@ -9,7 +9,7 @@
             "type": "go",
             "request": "launch",
             "mode": "debug",
-            "program": "C:\\alipan_auto_sign\\main.go"
+            "program": "D:\\xm\\alipan_auto_sign\\main.go"
         }
     ]
 }
