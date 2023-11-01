@@ -1,0 +1,4 @@
+pushplus_token: ## pushplus推送token
+refresh_token:  ## 阿里云网盘刷新token
+bilibili_cookie: ## B站cookie
+jd_cookie: ##京东cookie
