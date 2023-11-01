@@ -35,4 +35,4 @@ jobs:
         run: |
           go build &&
           sudo chmod 777 ./autoSign &&
-          ./autoSign ${{ secrets.PUSHPLUS_TOKEN }} ${{ secrets.REFRESH_TOKEN }} ${{ secrets.BILIBILI_COOKIE }} ${{ secrets.JD_COOKIE }}
+          ./autoSign ${{ secrets.PUSHPLUS_TOKEN }} ${{ secrets.REFRESH_TOKEN }} ${{ secrets.BILIBILI_COOKIE }} 123
