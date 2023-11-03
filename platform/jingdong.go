@@ -35,9 +35,14 @@ func (JD *JD) dailySign(cookie string) (string, error) {
 		content = resMap["errorMessage"].(string)
 		return title + content, nil
 	}
-	dailyAward := resMap["data"].(map[string]interface{})["dailyAward"].(map[string]interface{})
+	var dailyAward map[string]interface{}
+	if value, ok := resMap["data"].(map[string]interface{})["dailyAward"]; ok {
+		dailyAward = value.(map[string]interface{})
+	} else if value, ok := resMap["data"].(map[string]interface{})["continuityAward"]; ok {
+		dailyAward = value.(map[string]interface{})
+	}
 	title = dailyAward["title"].(string)
-	content = dailyAward["subTitle"].(string) + dailyAward["beanAward"].(map[string]interface{})["beanCount"].(string) + "个京豆"
+	content = dailyAward["beanAward"].(map[string]interface{})["beanCount"].(string) + "个京豆"
 	return title + content, nil
 }
 
