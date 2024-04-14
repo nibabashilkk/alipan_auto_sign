@@ -11,6 +11,7 @@ func main() {
 	refreshTokens := config.ConfigInstance.RefreshToken
 	bilibiliCookies := config.ConfigInstance.BilibiliCookie
 	jdCookies := config.ConfigInstance.JdCookie
+	kkCookie := config.ConfigInstance.KKCookie
 	if refreshTokens != "" {
 		refreshTokenList := strings.Split(refreshTokens, ",")
 		aliCloudDisk := &platform.AliCloudDisk{}
@@ -30,6 +31,13 @@ func main() {
 		jd := &platform.JD{}
 		for _, value := range jdCookiesList {
 			jd.Run(pushPlusToken, value)
+		}
+	}
+	if kkCookie != "" {
+		kkCookieList := strings.Split(kkCookie, ",")
+		kk := &platform.KK{}
+		for _, value := range kkCookieList {
+			kk.Run(pushPlusToken, value)
 		}
 	}
 }
