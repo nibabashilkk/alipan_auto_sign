@@ -55,7 +55,7 @@ func sign(kkCookie string) (msg string, err error) {
 	}
 	var data1 map[string]interface{}
 	json.Unmarshal(body1, &data1)
-	reward := data["data"].(map[string]interface{})["sign_daily_reward"].(float64) / 2048
+	reward := data1["data"].(map[string]interface{})["sign_daily_reward"].(float64) / 2048
 	return "签到成功，今日签到奖励" + strconv.Itoa(int(reward)) + "MB", nil
 }
 
