@@ -40,9 +40,16 @@ func (JD *JD) dailySign(cookie string) (string, error) {
 		dailyAward = value.(map[string]interface{})
 	} else if value, ok := resMap["data"].(map[string]interface{})["continuityAward"]; ok {
 		dailyAward = value.(map[string]interface{})
+	} else if value, ok := resMap["data"].(map[string]interface{})["newUserAward"]; ok {
+		dailyAward = value.(map[string]interface{})
 	}
 	title = dailyAward["title"].(string)
-	content = dailyAward["beanAward"].(map[string]interface{})["beanCount"].(string) + "个京豆"
+	if value, ok :=  dailyAward["beanAward"]; ok {
+		content = value.(map[string]interface{})["beanCount"].(string) + "个京豆"
+	} else {
+		todayAward := dailyAward["awardList"].([]interface{})[0].(map[string]interface{})
+		content = todayAward["beanCount"].(string) + "个京豆"
+	}
 	return title + content, nil
 }
 
