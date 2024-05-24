@@ -1,5 +1,5 @@
-pushplus_token: 123456abc ## pushplus推送token
-refresh_token: 123456abc ## 阿里云网盘刷新token
+pushplus_token: b63bb0d7984e45e38901768971523803 ## pushplus推送token
+refresh_token: 376ff898faa54fa48a3d8fd7e0d41628 ## 阿里云网盘刷新token
 bilibili_cookie: 123456abc ## B站cookie
 kk_cookie: 123456abc ##夸克网盘cookie
 jd_cookie: 123456abc ##京东cookie
