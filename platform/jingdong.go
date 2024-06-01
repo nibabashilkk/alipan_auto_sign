@@ -32,8 +32,12 @@ func (JD *JD) dailySign(cookie string) (string, error) {
 	var title, content string
 	if resMap["code"].(string) != "0" {
 		title = "签到失败"
-		content = resMap["errorMessage"].(string)
-		return title + content, nil
+		if content, exist := resMap["errorMessage"]; exist {
+			return title + content.(string), nil
+		} else if content, exist := resMap["message"]; exist {
+			return title + content.(string), nil
+		}
+		return "不知名错误", nil
 	}
 	var dailyAward map[string]interface{}
 	if value, ok := resMap["data"].(map[string]interface{})["dailyAward"]; ok {
