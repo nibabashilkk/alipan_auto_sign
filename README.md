@@ -69,4 +69,9 @@ refresh_token失效的话更新下secret即可。
 
 默认是每天早上八点半运行，实际可能会到中午十二点才会运行（之前试过天气推送就会延迟）。
 
+### 特别感谢
+
+本项目 CDN 加速及安全防护由 Tencent EdgeOne 赞助
+
 [最佳亚洲 CDN、Edge 和安全解决方案 - 腾讯 EdgeOne](https://edgeone.ai/?from=github)
+![](https://edgeone.ai/media/34fe3a45-492d-4ea4-ae5d-ea1087ca7b4b.png)
